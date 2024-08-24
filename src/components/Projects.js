@@ -13,11 +13,13 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('https://api.github.com/users/hiteshchinu/repos', {
-          headers: {
-            Authorization: `token ${GITHUB_TOKEN}`,
-          },
-        });
+        const response = await axios.get('https://api.github.com/users/hiteshchinu/repos', 
+        // {
+        //   headers: {
+        //     Authorization: `token ${GITHUB_TOKEN}`,
+        //   },
+        // }
+      );
 
         const projectsData = await Promise.all(response.data.map(async (project) => {
           try {
