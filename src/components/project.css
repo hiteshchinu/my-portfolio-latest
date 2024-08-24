@@ -1,0 +1,107 @@
+/* src/components/project.css */
+
+/* General card styles */
+.project-card {
+  border-radius: 0.5rem;
+  border: 1px solid #dee2e6;
+  transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card-img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  /* height: 180px; */
+  object-fit: cover;
+}
+
+.project-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Badge styles */
+.badge {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 0.7rem;
+  margin: 0.25rem;
+}
+
+/* Dark mode styles */
+.dark-mode .project-card {
+  background-color: #343a40;
+  border-color: #495057;
+}
+
+.dark-mode .card-body {
+  color: #f8f9fa;
+}
+
+.dark-mode .badge {
+  background-color: #6c757d;
+}
+
+.dark-mode .btn-primary {
+  background-color: #28cc1f;
+  border-color: #074001;
+}
+
+.dark-mode .btn-primary:hover {
+  background-color: #074001;
+  border-color: #28cc1f;
+}
+
+.dark-mode .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.dark-mode .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Light mode styles */
+.light-mode .project-card {
+  background-color: #ffffff;
+  border-color: #dee2e6;
+}
+
+.light-mode .card-body {
+  color: #212529;
+}
+
+.light-mode .badge {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+.light-mode .btn-primary {
+  background-color: #28cc1f;
+  border-color: #074001;
+}
+
+.light-mode .btn-primary:hover {
+  background-color: #074001;
+  border-color: #28cc1f;
+}
+
+.light-mode .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.light-mode .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}

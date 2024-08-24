@@ -1,0 +1,56 @@
+/* src/components/Home.css */
+.home {
+  padding: 60px 20px;
+  background: none; /* Remove background */
+  color: var(--text-color); /* Ensure text matches the theme */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.list-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.list-social i {
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.list-social i:hover {
+  color: #00ff00; /* Hover color for icons */
+}
+
+.profile-photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%; /* Circle image */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Optional shadow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+  }
+
+  .profile-photo {
+    margin-top: 30px;
+    max-width: 80%; /* Adjust as needed */
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-photo {
+    max-width: 75%; /* Adjust based on your design */
+  }
+}
