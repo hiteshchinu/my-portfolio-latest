@@ -1,4 +1,3 @@
-// src/components/Projects.js
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Spinner, Col, Card } from 'react-bootstrap';
 import axios from 'axios';
@@ -7,43 +6,38 @@ import './project.css'; // Import the CSS file
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Add error state
 
-  const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN; // Replace with your actual token
+  const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('https://api.github.com/users/hiteshchinu/repos', 
-        // {
-        //   headers: {
-        //     Authorization: `token ${GITHUB_TOKEN}`,
-        //   },
-        // }
-      );
+        const response = await axios.get('https://api.github.com/users/hiteshchinu/repos', {
+          headers: {
+            Authorization: `token ${GITHUB_TOKEN}`,
+          },
+        });
 
         const projectsData = await Promise.all(response.data.map(async (project) => {
           try {
-            const imageResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/contents/cover.png`, 
-            //   {
-            //   headers: {
-            //     Authorization: `token ${GITHUB_TOKEN}`,
-            //   },
-            // }
-          );
+            const imageResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/contents/cover.png`, {
+              headers: {
+                Authorization: `token ${GITHUB_TOKEN}`,
+              },
+            });
             project.coverImage = imageResponse.data.download_url;
           } catch (error) {
             project.coverImage = null;
           }
 
           try {
-            const topicsResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/topics`, 
-            //   {
-            //   headers: {
-            //     Authorization: `token ${GITHUB_TOKEN}`,
-            //     Accept: 'application/vnd.github.mercy-preview+json',
-            //   },
-            // }
-          );
+            const topicsResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/topics`, {
+              headers: {
+                Authorization: `token ${GITHUB_TOKEN}`,
+                Accept: 'application/vnd.github.mercy-preview+json',
+              },
+            });
             project.topics = topicsResponse.data.names || [];
           } catch (error) {
             project.topics = [];
@@ -54,7 +48,8 @@ const Projects = () => {
 
         setProjects(projectsData);
       } catch (error) {
-        console.error('Error fetching GitHub projects', error);
+        console.error('Error fetching GitHub projects', error.response || error);
+        setError('Failed to fetch projects'); // Set error state
       } finally {
         setLoading(false);
       }
@@ -71,10 +66,18 @@ const Projects = () => {
     );
   }
 
+  if (error) {
+    return (
+      <Container className="my-5 text-center">
+        <p>{error}</p>
+      </Container>
+    );
+  }
+
   return (
     <Container id="projects" className="my-5">
       <h2 className="text-center mb-4">My GitHub Projects</h2>
-      <Row xs={1} sm={2} md={3} lg={3} className="g-4"> {/* Three cards per row */}
+      <Row xs={1} sm={2} md={3} lg={3} className="g-4">
         {projects.length > 0 ? (
           projects.map((project) => (
             <Col key={project.id}>
