@@ -23,23 +23,27 @@ const Projects = () => {
 
         const projectsData = await Promise.all(response.data.map(async (project) => {
           try {
-            const imageResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/contents/cover.png`, {
-              headers: {
-                Authorization: `token ${GITHUB_TOKEN}`,
-              },
-            });
+            const imageResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/contents/cover.png`, 
+            //   {
+            //   headers: {
+            //     Authorization: `token ${GITHUB_TOKEN}`,
+            //   },
+            // }
+          );
             project.coverImage = imageResponse.data.download_url;
           } catch (error) {
             project.coverImage = null;
           }
 
           try {
-            const topicsResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/topics`, {
-              headers: {
-                Authorization: `token ${GITHUB_TOKEN}`,
-                Accept: 'application/vnd.github.mercy-preview+json',
-              },
-            });
+            const topicsResponse = await axios.get(`https://api.github.com/repos/hiteshchinu/${project.name}/topics`, 
+            //   {
+            //   headers: {
+            //     Authorization: `token ${GITHUB_TOKEN}`,
+            //     Accept: 'application/vnd.github.mercy-preview+json',
+            //   },
+            // }
+          );
             project.topics = topicsResponse.data.names || [];
           } catch (error) {
             project.topics = [];
