@@ -1,16 +1,26 @@
 /* src/components/Navbar.css */
 .navbar {
-  padding: 0 20px;
+  padding: 10px 20px; /* Add some padding for breathing space */
   position: fixed; /* Ensures the navbar stays fixed */
   top: 0; /* Stick to the top */
   width: 100%; /* Full width */
+  background-color: #ffffff; /* Add a subtle background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   z-index: 9999; /* Ensure it’s above other elements */
+  transition: background-color 0.3s ease; /* Smooth transition on background change */
 }
 
 .navbar-brand {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
   color: #00ff00;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 40px; /* Height of the logo */
+  margin-right: 10px; /* Space between the logo and any text */
 }
 
 .navbar-nav {
@@ -24,11 +34,31 @@
 .nav-link {
   color: #228B22;
   margin-left: 20px;
+  font-size: 1.1rem; /* Slightly larger font size */
+  font-weight: 500; /* Make the text slightly bolder */
+  text-transform: uppercase; /* Make the text uppercase */
+  position: relative;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00ff00;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -5px; 
 }
 
 .nav-link:hover {
   color: #00ff00;
-  text-decoration: underline;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .dark-mode-toggle {
@@ -38,6 +68,9 @@
   margin-left: 20px;
   font-family: 'Courier New', Courier, monospace;
   cursor: pointer;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 .dark-mode-toggle:hover {
@@ -52,6 +85,7 @@
 
 .dark-mode .navbar {
   background-color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow in dark mode */
 }
 
 .dark-mode .nav-link {
@@ -67,15 +101,31 @@
   .navbar-nav {
     flex-direction: column;
     align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent background for dropdown */
+    width: 100%; /* Full width on mobile */
+    position: absolute;
+    top: 60px; /* Below the navbar */
+    left: 0;
+    padding: 10px 20px; /* Add padding for mobile */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    display: none; /* Hidden by default */
+  }
+
+  .navbar-nav.active {
+    display: flex;
   }
 
   .nav-link {
     margin-left: 0;
     margin-top: 10px;
+    font-size: 1.2rem; /* Larger font size for mobile */
+    width: 100%;
   }
 
   .dark-mode-toggle {
     margin-left: 0;
     margin-top: 10px;
+    width: 100%;
+    text-align: left;
   }
 }

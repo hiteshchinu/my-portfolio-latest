@@ -71,10 +71,10 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
   color: #00ff00;
   text-decoration: underline;
-}
+} */
 
 html {
   scroll-behavior: smooth;
