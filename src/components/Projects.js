@@ -10,6 +10,7 @@ const Projects = () => {
 
   const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
