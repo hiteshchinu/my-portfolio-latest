@@ -22,9 +22,7 @@ I’m excited about the opportunities in the tech field and am always looking to
   return (
     <Container id="about" className="my-5">
       <h2>About Me</h2>
-      <pre className="code-block">
-        {jsonText}
-      </pre>
+      <pre className="code-block">{jsonText}</pre>
     </Container>
   );
 };
