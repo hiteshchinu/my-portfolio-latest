@@ -30,7 +30,7 @@ const NavbarComponent = ({ toggleDarkMode, darkMode }) => {
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
+        <Nav className="ms-auto">
           <Nav.Link as={Link} className="terminal-text" to="/home">
             Home
           </Nav.Link>

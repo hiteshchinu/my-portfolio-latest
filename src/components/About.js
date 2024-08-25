@@ -5,15 +5,12 @@ import { Container } from "react-bootstrap";
 const About = () => {
   const aboutMe = {
     name: "Hitesh Khandelwal",
-    hobbies: ["music", "movies"],
-    profession: "Electrical Engineer transitioning into IT",
-    skills: ["web development", "data analytics", "problem-solving"],
-    interests: ["coding", "staying fit", "learning and growing"],
-    description: `Hi, I'm Hitesh Khandelwal, a passionate electrical engineer with a keen interest in transitioning into the IT sector.
-I've gained experience in various technologies, including web development, data analytics, and more.
-My portfolio showcases a range of projects that highlight my skills and dedication.`,
-    additionalInfo: `I enjoy problem-solving, coding, and staying fit by going to the gym.
-I’m excited about the opportunities in the tech field and am always looking to learn and grow.`,
+    hobbies: ["music", "exploring new technologies", "fitness"],
+    profession: "Electrical and Electronics Engineering Graduate",
+    skills: ["data analytics", "frontend development", "IoT", "problem-solving"],
+    interests: ["coding", "project development", "continuous learning"],
+    description: `Hi, I'm Hitesh Khandelwal, an enthusiastic Electrical and Electronics Engineering graduate with a strong foundation in data analytics, frontend development, and IoT. My education at VIT Chennai and various projects, including a gesture-controlled robotic arm and a full-stack note-taking application, reflect my technical skills and problem-solving abilities.`,
+    additionalInfo: `I am passionate about leveraging my skills to contribute to innovative projects. In my free time, I enjoy exploring new technologies, working on personal projects, and staying fit. I am always eager to learn and grow within dynamic teams and challenging environments.`,
   };
 
   // Convert the object to a formatted JSON string
